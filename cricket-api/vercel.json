@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin",  "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" },
+        { "key": "Cache-Control",                "value": "s-maxage=60, stale-while-revalidate=120" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/api/matches",   "destination": "/api/matches.js"   },
+    { "source": "/api/scorecard", "destination": "/api/scorecard.js" },
+    { "source": "/api/live",      "destination": "/api/live.js"      }
+  ]
+}
